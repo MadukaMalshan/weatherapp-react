@@ -105,7 +105,12 @@ const Weather = () => {
                         placeholder='Enter city name (e.g. Tokyo)'
                         aria-label='City'
                     />
-                    <button className='search-btn' onClick={() => search(city)} disabled={loading} aria-label='Search'>
+                    <button
+                        className='search-btn'
+                        onClick={async () => { await search(city); setCity('') }}
+                        disabled={loading}
+                        aria-label='Search'
+                    >
                         {loading ? <span className='dot-loader'/> : <img src={searchIcon} alt='search' />}
                     </button>
                 </div>
